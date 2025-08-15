@@ -9,11 +9,11 @@ import { redirect } from "next/navigation";
 const SESSION_EXPIRATION_SECONDS = 60 * 60 * 24 * 7
 const COOKIE_SESSION_KEY = "session-id"
 
-interface AuthResponse {
+type AuthResponse = {
     success: boolean;
     message: string;
 }
-interface Cookies {
+type Cookies = {
   set: (
     key: string,
     value: string,

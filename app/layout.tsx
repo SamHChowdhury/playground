@@ -25,12 +25,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css"
-        ></link>
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased p-4`}
       >

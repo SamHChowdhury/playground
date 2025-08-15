@@ -4,7 +4,7 @@ import CreateTodo from "@/components/CreateTodo";
 import { useState } from "react";
 import { completeTodo } from "@/api/todos";
 
-interface Todo {
+type Todo = {
     id: string;
     title: string;
     completed: boolean;
@@ -17,7 +17,6 @@ export default function TodoPage({todos}: { todos: Array<Todo> }) {
     const [todoList, setTodoList] = useState(todos)
     const onCompleted = async (todoId: string) => {
         const completedTodo = await completeTodo(todoId);
-        console.log("Completed Todo:", completedTodo);
         if (completedTodo) {
             setTodoList(todoList.map(todo => 
                 todo.id === todoId ? { ...todo, completed: true } : todo

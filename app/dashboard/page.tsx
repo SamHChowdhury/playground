@@ -16,10 +16,6 @@ export default async function Dashboard() {
     }   
 
     return (
-        <div>
-            <h1>Dashboard</h1>
-            <p>Below are your TODOs!</p>
-            <TodoPage todos={todos} />
-        </div>
+        <TodoPage todos={todos} />
     );
 }

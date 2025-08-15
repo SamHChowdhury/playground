@@ -2,14 +2,17 @@
 
 import { createTodo } from "@/api/todos";
 import { useFormStatus } from "react-dom";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Card, CardContent, CardTitle } from "./ui/card";
 
 function SubmitButton() {
     const { pending } = useFormStatus();
 
     return (
-        <button type="submit" disabled={pending}>
+        <Button type="submit" disabled={pending} className="w-full text-xl py-4">
             {pending ? "Creating TODO..." : "Create TODO"}
-        </button>
+        </Button>
     );
 }
 
@@ -28,19 +31,21 @@ export default function CreateTodo({onTodoCreated}: { onTodoCreated: (createdTod
     };
 
     return (
-        <form action={handleCreateTodo}>
-            <fieldset>
-                <label>
-                    New TODO
-                    <input
-                        required
-                        type="text"
-                        name="title"
-                        placeholder="Enter a new TODO"
-                    />
-                </label>
-            </fieldset>
-            <SubmitButton />
-        </form>
+        <Card className="max-w-[800px] mx-auto">
+            <CardTitle className="text-2xl font-bold text-center">Create TODO</CardTitle>
+            <CardContent>
+                <form action={handleCreateTodo} className="flex flex-col gap-8 max-w-[650px] mx-auto my-8">
+                    <fieldset>
+                        <Input
+                            required
+                            type="text"
+                            name="title"
+                            placeholder="Enter a new TODO"
+                        />
+                    </fieldset>
+                    <SubmitButton />
+                </form>
+            </CardContent>
+        </Card>
     );
 }

@@ -1,6 +1,7 @@
 
 import { getSession, signOut } from "@/api/auth";
 import Link from "next/link";
+import { Button, buttonVariants } from "./ui/button";
 
 export default async function Navbar() {
   const user = await getSession();
@@ -27,12 +28,12 @@ export default async function Navbar() {
         {!user ? (
           <ul className="flex space-x-4">
             <li>
-              <Link href="/sign-in" role="button">
+              <Link href="/sign-in" className={buttonVariants()}>
                 Sign In
               </Link>
             </li>
             <li>
-              <Link href="/sign-up" role="button">
+              <Link href="/sign-up" className={buttonVariants()}>
                 Sign Up
               </Link>
             </li>
@@ -45,9 +46,9 @@ export default async function Navbar() {
               }}>{user.name}</h4>
             </li>
             <li>
-              <button onClick={signOut} role="button">
+              <Button onClick={signOut}>
                 Log Out
-              </button>
+              </Button>
             </li>
           </ul>
         )}
